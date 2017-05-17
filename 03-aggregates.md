@@ -44,15 +44,15 @@ psql aggregates-exercise
 
 Write the following queries to perform the following
 
-- Calculate the total calories for all the snacks. Call this column `total_calories`
+- Calculate the total calories for all the snacks. Call this column `total_calories` SELECT SUM(calories) AS total_calories FROM snacks;
 
-- Calculate the average price for all the snacks. Call this column `average_price`
+- Calculate the average price for all the snacks. Call this column `average_price` SELECT AVG(price) AS average_price FROM snacks;
 
-- Calculate the lowest price for all the snacks. Call this column `lowest_price`
+- Calculate the lowest price for all the snacks. Call this column `lowest_price` SELECT MIN(price) AS lowest_price FROM snacks;
 
-- Calculate the highest price for all the snacks. Call this column `highest_price`
+- Calculate the highest price for all the snacks. Call this column `highest_price` SELECT MAX(price) AS highest_price FROM snacks;
 
-- Find the count for each kind of candy in the table. Your output should look like this 
+- Find the count for each kind of candy in the table. Your output should look like this SELECT kind, COUNT(kind) FROM snacks GROUP BY kind;
 
 ```sql
 /*
@@ -69,7 +69,7 @@ Write the following queries to perform the following
 ```
 
 - Find the count of each kind of candy where the count is greater than one. Your output should look like this:
-
+SELECT kind, COUNT(kind) FROM snacks GROUP BY kind HAVING COUNT(kind) > 1;
 ```sql
 /*
     kind     | count 
@@ -83,7 +83,7 @@ Write the following queries to perform the following
 ```
 
 - Find the average number of calories for each kind of candy and call the name of your column that contains the average `average_calories`. Order your output by the kind of candy in ascending order. Your ouput should look like this.
-
+SELECT kind, ROUND(AVG(calories)) AS average_calories FROM snacks GROUP BY kind ORDER BY kind ASC;
 
 ```sql
 /*
@@ -100,7 +100,7 @@ Write the following queries to perform the following
 ```
 
 - Find the average number of calories for each kind of candy and call the name of your column that contains the average `average_calories`. You should only select a `kind` that starts with the letter `b` and has an average calories less than `250` Order your output by the kind of candy in ascending order. Your ouput should look like this.
-
+SELECT kind, ROUND(AVG(calories)) AS average_calories FROM snacks GROUP BY kind HAVING AVG(calories) < 250 AND kind ILIKE 'b%';
 
 ```sql
 /*
