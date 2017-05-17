@@ -4,7 +4,7 @@
 
 Write the SQL commands necessary to do the following:
 
-1. Create a database called `first-assignment`
+1. Create a database called `first_assignment`
 2. Connect to that database
 3. Create a table called `products` with columns for:
     - `id`, which should be a unique auto-incremementing integer
