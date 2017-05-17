@@ -46,11 +46,23 @@ Write the following queries to perform the following
 
 - Calculate the total calories for all the snacks. Call this column `total_calories`
 
+ANSWER:
+```SELECT SUM(calories) AS total_calories FROM snacks;```
+
 - Calculate the average price for all the snacks. Call this column `average_price`
+
+ANSWER:
+```SELECT AVG(price) AS average_price FROM snacks;```
 
 - Calculate the lowest price for all the snacks. Call this column `lowest_price`
 
+ANSWER:
+```SELECT MIN(price) AS lowest_price FROM snacks;```
+
 - Calculate the highest price for all the snacks. Call this column `highest_price`
+
+ANSWER:
+```SELECT MAX(price) AS highest_price FROM snacks;```
 
 - Find the count for each kind of candy in the table. Your output should look like this 
 
@@ -68,6 +80,9 @@ Write the following queries to perform the following
 */
 ```
 
+ANSWER:
+```SELECT kind, COUNT(*) FROM snacks GROUP BY kind;```
+
 - Find the count of each kind of candy where the count is greater than one. Your output should look like this:
 
 ```sql
@@ -81,6 +96,9 @@ Write the following queries to perform the following
  fruit snack |     2
 */
 ```
+
+ANSWER:
+```SELECT kind, COUNT(*) FROM snacks GROUP BY kind HAVING COUNT(*) > 1;```
 
 - Find the average number of calories for each kind of candy and call the name of your column that contains the average `average_calories`. Order your output by the kind of candy in ascending order. Your ouput should look like this.
 
@@ -98,6 +116,9 @@ Write the following queries to perform the following
  yogurt      |              260
 */
 ```
+ANSWER:
+
+```SELECT kind, AVG(calories)::integer AS average_calories FROM snacks GROUP BY kind ORDER BY kind ASC;```
 
 - Find the average number of calories for each kind of candy and call the name of your column that contains the average `average_calories`. You should only select a `kind` that starts with the letter `b` and has an average calories less than `250` Order your output by the kind of candy in ascending order. Your ouput should look like this.
 
@@ -110,16 +131,31 @@ Write the following queries to perform the following
 */
 ```
 
+ANSWER: 
+```SELECT kind, AVG(calories)::integer AS average_calories FROM snacks WHERE kind = 'beverage' GROUP BY kind;```
+
 ### Part 2 - Codewars
 
 Complete the following Codewars problems:
 
 [https://www.codewars.com/kata/sql-basics-simple-sum](https://www.codewars.com/kata/sql-basics-simple-sum)
+ANSWER:
+```SELECT SUM(age) AS age_sum FROM people;```
 
 [https://www.codewars.com/kata/sql-basics-simple-min-slash-max/train/sql](https://www.codewars.com/kata/sql-basics-simple-min-slash-max/train/sql)
+ANSWER:
+```SELECT MIN(age) AS age_min, MAX(age) AS age_max FROM people;```
 
 [https://www.codewars.com/kata/sql-basics-simple-distinct/train/sql](https://www.codewars.com/kata/sql-basics-simple-distinct/train/sql)
+ANSWER:
+```SELECT DISTINCT age FROM people;```
 
 [https://www.codewars.com/kata/sql-basics-simple-group-by/train/sql](https://www.codewars.com/kata/sql-basics-simple-group-by/train/sql)
 
+ANSWER:
+```SELECT age, COUNT(age) AS people_count FROM people GROUP BY age;```
+
 [https://www.codewars.com/kata/sql-basics-simple-having/train/sql](https://www.codewars.com/kata/sql-basics-simple-having/train/sql)
+
+ANSWER:
+``` SELECT age, COUNT(age) AS total_people FROM people GROUP BY age HAVING COUNT(age) >= 10; ```
