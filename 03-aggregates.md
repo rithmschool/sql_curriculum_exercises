@@ -39,7 +39,7 @@ INSERT INTO snacks (name, kind, calories, price) VALUES ('payday', 'candy bar', 
 
 ```sh
 psql < data.sql
-psql aggregates-exercise
+psql aggregates_exercise
 ```
 
 Write the following queries to perform the following
